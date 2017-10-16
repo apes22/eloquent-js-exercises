@@ -1,0 +1,43 @@
+/*
+Chapter 13 Exercise: Build A Table
+*/
+
+var buildTable = function(objectsArray){
+
+    //create a table element
+    //create a tr element
+    //make tr child of the table element
+    var table = document.createElement("table");
+    var tr = document.createElement("tr");
+    table.appendChild(tr);
+    
+    //We are assuming that every object in objectsArray all have the same properties so we can
+    //get the list of properties from any object in the array;
+    var properties = Object.keys(objectsArray[0]);
+
+    //for each property in an object, create a heading cell element (th) 
+    //make each heading cell element (th) child of the tr element
+    for (p in properties){
+        var th = document.createElement("th");
+        th.innerHTML = p;
+        tr.appendChild(th);
+    }
+
+    //make a tr element
+    //for each value of each object create a regular cell (td)
+    ///make each regular cell element td child of tr element
+    var tr_2 = document.createElement("tr");
+
+    for (obj in objectsArray){
+        for (p in properties){
+            var td = document.createElement("td");
+            td.innerHTML = obj[p];
+            tr_2.appendChild(th);
+        }
+       
+    }
+
+}
+
+buildTable();
+console.log(buildTable(MOUNTAINS));
